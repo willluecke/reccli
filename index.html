@@ -181,11 +181,11 @@
         .dot-green { background: #28c840; }
 
         .terminal {
-            padding: 24px;
+            padding: 32px;
             font-family: 'SF Mono', Monaco, 'Courier New', monospace;
-            font-size: 15px;
-            line-height: 1.8;
-            min-height: 500px;
+            font-size: 16px;
+            line-height: 2;
+            min-height: 650px;
             color: #d4d4d4;
         }
 
@@ -560,50 +560,63 @@
                     </div>
 
                     <div class="terminal-window">
-                        <div class="window-header">
+                        <div class="window-header" style="position: relative;">
                             <div class="window-dot dot-red"></div>
                             <div class="window-dot dot-yellow"></div>
                             <div class="window-dot dot-green"></div>
+
+                            <!-- RecCli floating button - positioned in header -->
+                            <div style="position: absolute; top: 6px; right: 20px; width: 90px; height: 36px; background: #2c2c2c; border-radius: 8px; display: flex; align-items: center; padding: 0 10px; gap: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.4);">
+                                <span style="color: white; font-size: 11px; font-weight: 700; font-family: Arial, sans-serif;">RecCli</span>
+                                <div style="width: 26px; height: 26px; background: white; border-radius: 50%; border: 2px solid black; cursor: pointer; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center;">
+                                    <div style="width: 10px; height: 10px; background: #ff3b30; border-radius: 50%;"></div>
+                                </div>
+                            </div>
                         </div>
                         <div class="terminal">
-                            <div class="terminal-line">
-                                <span class="prompt">$</span> <span class="command">reccli gui</span>
+                            <div class="terminal-line output" style="color: #666;">
+                                # Watcher auto-launches popup for each terminal window
                             </div>
-                            <div class="terminal-line success">
-                                ✅ Starting reccli GUI...
-                            </div>
-                            <div class="terminal-line output">
-                                🎬 Click button to start recording
-                            </div>
-                            <div class="terminal-line">
+                            <div class="terminal-line" style="margin-top: 16px;">
                                 <span class="prompt">$</span> <span class="command">npm run dev</span>
                             </div>
                             <div class="terminal-line output">
-                                > dev > next dev
+                                > dev
                             </div>
                             <div class="terminal-line output">
-                                ready - started server on http://localhost:3000
-                            </div>
-                            <div class="terminal-line">
-                                <span class="prompt">$</span> <span class="command">git status</span>
-                            </div>
-                            <div class="terminal-line output">
-                                On branch main Your branch is up to date with 'origin/main'.
-                            </div>
-                            <div class="terminal-line">
-                                <span class="prompt">$</span> <span class="command">reccli stop</span>
+                                > next dev
                             </div>
                             <div class="terminal-line success">
-                                ✅ Recording saved: session_20240315_143022.cast
+                                ✓ Ready on http://localhost:3000
+                            </div>
+                            <div class="terminal-line" style="margin-top: 16px;">
+                                <span class="prompt">$</span> <span class="command">git commit -m "add feature"</span>
+                            </div>
+                            <div class="terminal-line output">
+                                [main abc1234] add feature
+                            </div>
+                            <div class="terminal-line output">
+                                 2 files changed, 42 insertions(+)
+                            </div>
+                            <div class="terminal-line" style="margin-top: 16px;">
+                                <span class="prompt">$</span> <span class="command">python debug.py</span>
+                            </div>
+                            <div class="terminal-line output">
+                                Running tests...
+                            </div>
+                            <div class="terminal-line success">
+                                All tests passed ✓
+                            </div>
+                            <div class="terminal-line" style="margin-top: 16px;">
+                                <span class="prompt">$</span> <span class="command">▊</span>
                             </div>
                         </div>
-
-                        <div class="record-button"></div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Stats section commented out for pre-release
         <section class="stats">
             <div class="container">
                 <div class="stats-grid">
@@ -626,6 +639,7 @@
                 </div>
             </div>
         </section>
+        -->
 
         <section class="problem-section">
             <div class="container">
@@ -697,50 +711,99 @@
 
         <section class="pricing-section" id="pricing">
             <div class="container">
-                <h2 class="section-title">Simple Pricing. No BS.</h2>
+                <h2 class="section-title">Simple Pricing. Start Free.</h2>
 
                 <p style="text-align: center; font-size: 20px; opacity: 0.9;">
-                    No free tier. Good tools cost money. This costs less than a coffee.
+                    Core recording features? Free forever. Advanced AI features? Coming soon.
                 </p>
 
-                <div class="price-card">
-                    <div class="price-amount">$5</div>
-                    <div class="price-period">per month after 7-day trial</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1000px; margin: 60px auto;">
+                    <!-- Free Tier -->
+                    <div class="price-card" style="margin: 0;">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 8px;">Base</h3>
+                        </div>
+                        <div class="price-amount">$0</div>
+                        <div class="price-period">forever • via Homebrew</div>
 
-                    <ul class="price-features">
-                        <li>
-                            <div class="check-icon"></div>
-                            <span>Unlimited recordings</span>
-                        </li>
-                        <li>
-                            <div class="check-icon"></div>
-                            <span>Floating record button</span>
-                        </li>
-                        <li>
-                            <div class="check-icon"></div>
-                            <span>Perfect playback</span>
-                        </li>
-                        <li>
-                            <div class="check-icon"></div>
-                            <span>Local storage (your data)</span>
-                        </li>
-                        <li>
-                            <div class="check-icon"></div>
-                            <span>Share links (coming soon)</span>
-                        </li>
-                        <li>
-                            <div class="check-icon"></div>
-                            <span>Cloud backup (coming soon)</span>
-                        </li>
-                    </ul>
+                        <ul class="price-features">
+                            <li>
+                                <div class="check-icon"></div>
+                                <span>Unlimited recordings</span>
+                            </li>
+                            <li>
+                                <div class="check-icon"></div>
+                                <span>Floating record button</span>
+                            </li>
+                            <li>
+                                <div class="check-icon"></div>
+                                <span>Auto-launch on new terminals</span>
+                            </li>
+                            <li>
+                                <div class="check-icon"></div>
+                                <span>Per-terminal tracking</span>
+                            </li>
+                            <li>
+                                <div class="check-icon"></div>
+                                <span>Local storage (your data)</span>
+                            </li>
+                            <li>
+                                <div class="check-icon"></div>
+                                <span>Open source (MIT)</span>
+                            </li>
+                        </ul>
 
-                    <a href="/checkout" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center; font-size: 18px;">
-                        Start 7-Day Free Trial
-                    </a>
+                        <a href="#install" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center; font-size: 18px;">
+                            Install Now
+                        </a>
+                    </div>
 
-                    <p style="margin-top: 24px; font-size: 15px; color: rgba(255,255,255,0.7); text-align: center;">
-                        Cancel anytime. No questions asked.
-                    </p>
+                    <!-- Pro Tier (Coming Soon) -->
+                    <div class="price-card" style="margin: 0; border-color: #10b981; position: relative;">
+                        <div style="position: absolute; top: -12px; right: 20px; background: #10b981; color: white; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 700;">
+                            COMING SOON
+                        </div>
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 8px;">Pro</h3>
+                        </div>
+                        <div class="price-amount" style="font-size: 56px;">TBD</div>
+                        <div class="price-period">intelligent context management</div>
+
+                        <ul class="price-features">
+                            <li>
+                                <div class="check-icon"></div>
+                                <span><strong>Everything in Base</strong></span>
+                            </li>
+                            <li>
+                                <div class="check-icon"></div>
+                                <span><strong>AI-powered context management</strong></span>
+                            </li>
+                            <li>
+                                <div class="check-icon"></div>
+                                <span><strong>Smart session search</strong> - Find past solutions instantly</span>
+                            </li>
+                            <li>
+                                <div class="check-icon"></div>
+                                <span><strong>Intelligent summarization</strong> - Compress long sessions</span>
+                            </li>
+                            <li>
+                                <div class="check-icon"></div>
+                                <span><strong>Multi-format export</strong> - txt, md, json, html</span>
+                            </li>
+                            <li>
+                                <div class="check-icon"></div>
+                                <span><strong>Advanced integrations</strong> - Claude Code, Cursor, and more</span>
+                            </li>
+                        </ul>
+
+                        <a href="https://github.com/willluecke/reccli/issues" class="btn btn-secondary" style="width: 100%; text-align: center; justify-content: center; font-size: 18px;">
+                            Get Notified
+                        </a>
+
+                        <p style="margin-top: 24px; font-size: 14px; color: rgba(255,255,255,0.7); text-align: center;">
+                            Phase 2 features for AI coding workflows
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -771,11 +834,11 @@
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                        <span>Why $5/month with no free tier?</span>
+                        <span>Will this always be free?</span>
                         <span class="faq-toggle">▼</span>
                     </div>
                     <div class="faq-answer">
-                        Because free users don't value tools. They use them until they break, then complain. Paying users value tools. They use them properly and give feedback. $5 is less than your coffee. If reccli saves you one debugging session, it paid for itself for months.
+                        Yes! The core recording tool (Base) will always be free and open source. We're exploring optional premium features for power users who want advanced workflow integrations, but the fundamental recording functionality will never cost a penny.
                     </div>
                 </div>
 
