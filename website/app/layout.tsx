@@ -3,25 +3,38 @@ import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'RecCli - The First GUI-Based Terminal Text Recorder',
-  description: 'Dead-simple terminal recorder with a floating button. One click to start, one click to stop. Perfect for debugging sessions, AI coding tools, and documentation.',
-  keywords: ['terminal recorder', 'CLI recorder', 'asciinema', 'terminal', 'recording', 'dev tools', 'Claude Code', 'AI coding'],
+  metadataBase: new URL('https://reccli.com'),
+  title: 'RecCli - Terminal Recorder with One-Click Recording | Free & Open Source',
+  description: 'Dead-simple terminal recorder with a floating button. One click to start, one click to stop. Perfect for debugging sessions, AI coding tools, and documentation. Free, open-source alternative to asciinema with GUI.',
+  keywords: ['terminal recorder', 'CLI recorder', 'asciinema', 'terminal', 'recording', 'dev tools', 'Claude Code', 'AI coding', 'screen recording', 'terminal session', 'command line recorder', 'developer tools', 'homebrew', 'mac terminal recorder'],
   authors: [{ name: 'Will Luecke' }],
   creator: 'Will Luecke',
   publisher: 'RecCli',
+  alternates: {
+    canonical: 'https://reccli.com',
+  },
   openGraph: {
-    title: 'RecCli - The First GUI-Based Terminal Text Recorder',
-    description: 'Dead-simple terminal recorder with a floating button. One click to start, one click to stop.',
+    title: 'RecCli - Terminal Recorder with One-Click Recording',
+    description: 'Dead-simple terminal recorder with a floating button. One click to start, one click to stop. Free & open source.',
     url: 'https://reccli.com',
     siteName: 'RecCli',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'RecCli - Terminal Recorder with One-Click Recording',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RecCli - The First GUI-Based Terminal Text Recorder',
-    description: 'Dead-simple terminal recorder with a floating button. One click to start, one click to stop.',
+    title: 'RecCli - Terminal Recorder with One-Click Recording',
+    description: 'Dead-simple terminal recorder with a floating button. One click to start, one click to stop. Free & open source.',
     creator: '@reccli_app',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,

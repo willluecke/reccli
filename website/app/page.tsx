@@ -85,8 +85,8 @@ export default function Home() {
       {/* Header */}
       <header className="py-8">
         <nav className="container mx-auto px-6 md:px-10 flex justify-between items-center max-w-7xl">
-          <div className="flex items-center gap-3 text-3xl font-bold tracking-tight">
-            <div className="w-4 h-4 bg-[#ff5757] rounded-full"></div>
+          <div className="flex items-center gap-3 text-4xl font-bold tracking-tight">
+            <div className="w-5 h-5 bg-[#ff5757] rounded-full"></div>
             reccli
           </div>
           <a
@@ -110,12 +110,12 @@ export default function Home() {
               <h1 className="text-4xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-8">
                 Never Lose Terminal Context Again
               </h1>
-              <h2 className="text-3xl opacity-90 mb-4 lg:mb-8 leading-snug font-normal">
+              <h2 className="text-3xl opacity-90 mb-4 lg:mb-12 leading-snug font-normal">
                 One-click CLI recording. A floating button that stays out of your way.
               </h2>
 
               {/* Social Buttons - Hidden on mobile, shown on desktop */}
-              <div className="hidden lg:flex gap-4 mb-8">
+              <div className="hidden lg:flex gap-4 mb-4">
                 <a
                   href="https://github.com/willluecke/reccli"
                   className="bg-white/20 backdrop-blur-md px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-all inline-flex items-center gap-2 shadow-lg"
@@ -139,7 +139,7 @@ export default function Home() {
             </div>
 
             {/* Right Column - Terminal Demo */}
-            <div className="relative max-w-xl mx-auto lg:mx-0 lg:pr-11 lg:-mt-8 mt-4">
+            <div className="relative max-w-xl mx-auto lg:mx-0 lg:pr-11 lg:mt-4 mt-4">
               <div className="space-y-6">
               <div className="bg-[#1e1e1e] rounded-2xl shadow-2xl overflow-visible border border-white/10 relative">
                 {/* Terminal Header */}
@@ -167,7 +167,7 @@ export default function Home() {
                         <div className={`w-2.5 h-2.5 bg-[#ff3b30] transition-all ${terminalRecordingStarted ? 'rounded-full' : 'rounded-none'}`}></div>
                       </div>
                       {terminalRecordingStarted && (
-                        <div className="absolute -top-16 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap shadow-lg border border-white/10 z-20">
+                        <div className="absolute -top-16 left-1/2 -translate-x-1/2 lg:translate-x-[-50%] translate-x-[calc(-50%-10px)] bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap shadow-lg border border-white/10 z-20">
                           Export docs
                           <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px">
                             <div className="border-4 border-transparent border-t-black/70"></div>
