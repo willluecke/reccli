@@ -157,17 +157,18 @@
         .terminal-window {
             background: #1a1a1a;
             border-radius: 16px;
-            overflow: hidden;
+            overflow: visible;
             box-shadow: 0 30px 80px rgba(0,0,0,0.4);
             position: relative;
         }
 
         .window-header {
             background: #2d2d2d;
-            padding: 16px;
+            padding: 10px 16px;
             display: flex;
             gap: 10px;
             align-items: center;
+            border-radius: 16px 16px 0 0;
         }
 
         .window-dot {
@@ -180,12 +181,14 @@
         .dot-yellow { background: #febc2e; }
         .dot-green { background: #28c840; }
 
+        .dot-dark { background: #5c5c5c; }
+
         .terminal {
             padding: 32px;
             font-family: 'SF Mono', Monaco, 'Courier New', monospace;
             font-size: 16px;
             line-height: 2;
-            min-height: 650px;
+            min-height: 450px;
             color: #d4d4d4;
         }
 
@@ -528,7 +531,7 @@
                 <div class="rec-dot"></div>
                 reccli
             </div>
-            <a href="https://github.com/willluecke/RecCli" class="btn-github">
+            <a href="https://github.com/willluecke/reccli" class="btn-github">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
@@ -555,36 +558,39 @@
                         </div>
 
                         <div class="code-block">
-                            <code>$ curl -sSL https://reccli.com/install.sh | bash</code>
+                            <code>brew install willluecke/reccli</code>
                         </div>
                     </div>
 
                     <div class="terminal-window">
-                        <div class="window-header" style="position: relative;">
+                        <div class="window-header" style="position: relative; overflow: visible;">
                             <div class="window-dot dot-red"></div>
                             <div class="window-dot dot-yellow"></div>
                             <div class="window-dot dot-green"></div>
 
-                            <!-- RecCli floating button - positioned in header -->
-                            <div style="position: absolute; top: 6px; right: 20px; width: 90px; height: 36px; background: #2c2c2c; border-radius: 8px; display: flex; align-items: center; padding: 0 10px; gap: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.4);">
-                                <span style="color: white; font-size: 11px; font-weight: 700; font-family: Arial, sans-serif;">RecCli</span>
-                                <div style="width: 26px; height: 26px; background: white; border-radius: 50%; border: 2px solid black; cursor: pointer; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center;">
-                                    <div style="width: 10px; height: 10px; background: #ff3b30; border-radius: 50%;"></div>
+                            <!-- RecCli floating popup window -->
+                            <div style="position: absolute; top: -28px; right: 0px; background: transparent; border-radius: 8px;">
+                                <!-- Mini window header - sticks out above terminal -->
+                                <div style="background: #2d2d2d; padding: 4px 8px 10px 8px; display: flex; gap: 6px; align-items: center; border-radius: 8px 8px 0 0; box-shadow: 0 1px 3px rgba(0,0,0,0.3); position: relative; border-bottom: 1px solid #1a1a1a;">
+                                    <div style="width: 14px; height: 14px; border-radius: 50%; background: #5c5c5c; position: relative; top: 4px;"></div>
+                                    <div style="width: 14px; height: 14px; border-radius: 50%; background: #5c5c5c; position: relative; top: 4px;"></div>
+                                    <div style="width: 14px; height: 14px; border-radius: 50%; background: #5c5c5c; position: relative; top: 4px;"></div>
+                                </div>
+                                <!-- RecCli button content - sits in terminal header -->
+                                <div style="width: 110px; height: 40px; background: #2c2c2c; display: flex; align-items: center; padding: 0 14px 0 10px; gap: 5px; border-radius: 0 0 8px 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.4);">
+                                    <span style="color: white; font-size: 18px; font-weight: 600; font-family: Arial, sans-serif; position: relative; top: 3px;">RecCli</span>
+                                    <div style="width: 32px; height: 32px; background: white; border-radius: 50%; border: 2px solid black; cursor: pointer; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; top: 3px;">
+                                        <div style="width: 10px; height: 10px; background: #ff3b30; border-radius: 50%;"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="terminal">
                             <div class="terminal-line output" style="color: #666;">
-                                # Watcher auto-launches popup for each terminal window
+                                # Start recording before launching CLI LLM
                             </div>
                             <div class="terminal-line" style="margin-top: 16px;">
                                 <span class="prompt">$</span> <span class="command">npm run dev</span>
-                            </div>
-                            <div class="terminal-line output">
-                                > dev
-                            </div>
-                            <div class="terminal-line output">
-                                > next dev
                             </div>
                             <div class="terminal-line success">
                                 ✓ Ready on http://localhost:3000
@@ -870,16 +876,16 @@
                     <h2 class="section-title">Get Started in 30 Seconds</h2>
 
                     <div class="code-block" style="max-width: 650px; margin: 0 auto; font-size: 17px;">
-                        <div style="margin-bottom: 15px; opacity: 0.7;"># Quick install</div>
-                        <code>curl -sSL https://reccli.com/install.sh | bash</code>
-                        <div style="margin-top: 24px; margin-bottom: 15px; opacity: 0.7;"># Start GUI</div>
+                        <div style="margin-bottom: 15px; opacity: 0.7;"># Install with Homebrew</div>
+                        <code>brew install willluecke/reccli</code>
+                        <div style="margin-top: 24px; margin-bottom: 15px; opacity: 0.7;"># Start background watcher</div>
+                        <code>reccli watch</code>
+                        <div style="margin-top: 24px; margin-bottom: 15px; opacity: 0.7;"># Or launch GUI manually</div>
                         <code>reccli gui</code>
-                        <div style="margin-top: 24px; margin-bottom: 15px; opacity: 0.7;"># Or use CLI mode</div>
-                        <code>reccli start</code>
                     </div>
 
                     <div style="margin-top: 50px;">
-                        <a href="https://github.com/willluecke/RecCli" class="btn btn-primary">
+                        <a href="https://github.com/willluecke/reccli" class="btn btn-primary">
                             View on GitHub
                         </a>
                     </div>
@@ -894,7 +900,7 @@
             <p style="margin-top: 16px;">
                 <a href="mailto:hello@reccli.com">hello@reccli.com</a>
                 <a href="https://twitter.com/reccli_app">@reccli_app</a>
-                <a href="https://github.com/willluecke/RecCli">GitHub</a>
+                <a href="https://github.com/willluecke/reccli">GitHub</a>
             </p>
         </div>
     </footer>

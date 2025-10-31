@@ -205,3 +205,13 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Next.js
+website/.next/
+website/out/
+website/node_modules/
+website/.env*.local
+
+# TypeScript
+website/*.tsbuildinfo
+website/next-env.d.ts
