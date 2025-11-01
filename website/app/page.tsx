@@ -102,7 +102,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-8 pb-28">
+      <section className="py-8 pb-16">
         <div className="container mx-auto px-6 md:px-10 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center lg:mt-0 -mt-8">
             {/* Left Column */}
@@ -110,7 +110,7 @@ export default function Home() {
               <h1 className="text-4xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-8">
                 Never Lose Terminal Context Again
               </h1>
-              <h2 className="text-3xl opacity-90 mb-4 lg:mb-12 leading-snug font-normal">
+              <h2 className="text-2xl lg:text-3xl opacity-90 mb-4 lg:mb-12 leading-snug font-normal">
                 One-click CLI recording. A floating button that stays out of your way.
               </h2>
 
@@ -228,7 +228,7 @@ export default function Home() {
               </div>
 
               {/* Social Buttons - Only visible on mobile, below install command */}
-              <div className="flex lg:hidden gap-4 mt-6 justify-center">
+              <div className="flex lg:hidden gap-4 mt-12 justify-center">
                 <a
                   href="https://github.com/willluecke/reccli"
                   className="bg-white/20 backdrop-blur-md px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-all inline-flex items-center gap-2 shadow-lg"
@@ -287,7 +287,7 @@ export default function Home() {
       {/* Friction Problem Section */}
       <section className="py-20">
         <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-          <div className="bg-white/5 backdrop-blur-sm p-6 md:p-12 rounded-3xl border border-white/10">
+          <div className="bg-white/5 backdrop-blur-sm px-4 pt-8 pb-6 md:p-12 rounded-3xl border border-white/10">
             <h2 className="text-3xl font-bold mb-8 text-center">Yes, <code className="text-green-400">script</code> exists. So does walking, but we still use cars.</h2>
 
             <div className="grid md:grid-cols-2 gap-8 mt-12">
