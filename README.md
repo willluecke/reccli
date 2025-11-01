@@ -92,7 +92,7 @@ python3 reccli.py watch
 
 ## CLI Commands
 
-**This is a GUI tool (physical buttons), so if you're here, either you or I messed up big time. Nevertheless,**
+**This is a GUI tool (on-screen buttons), so if you're here, either you or I messed up big time. Nevertheless,**
 
 ```bash
 # Start background watcher (auto-starts on login after install.sh)
