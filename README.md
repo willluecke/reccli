@@ -1,6 +1,6 @@
 # 🎬 RecCli
 
-**The dead-simple terminal recorder with a floating button**
+**The dead-simple GUI terminal text recorder with a floating button**
 
 Finally, a record button for your terminal. One click to start, one click to stop. That's it.
 
