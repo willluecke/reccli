@@ -55,6 +55,7 @@ cd reccli
 - Powered by asciinema (high-quality terminal recording)
 - Sessions saved to `~/.reccli/recordings/`
 - Format: `session_YYYYMMDD_HHMMSS.cast`
+- **Important**: To start a recorded terminal session, click record as soon as the terminal opens. Recordings can't be started mid-session.
 
 ## Installation
 
@@ -90,6 +91,8 @@ python3 reccli.py watch
 - **asciinema** (installed automatically by install.sh)
 
 ## CLI Commands
+
+**This is a GUI tool (physical buttons), so if you're here, either you or I messed up big time. Nevertheless,**
 
 ```bash
 # Start background watcher (auto-starts on login after install.sh)
