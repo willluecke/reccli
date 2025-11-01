@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Will Luecke' }],
   creator: 'Will Luecke',
   publisher: 'RecCli',
+  icons: {
+    icon: '/icon.jpg',
+    shortcut: '/icon.jpg',
+    apple: '/icon.jpg',
+  },
   alternates: {
     canonical: 'https://reccli.com',
   },
