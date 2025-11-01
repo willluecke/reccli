@@ -177,18 +177,10 @@ Contributions are welcome! Feel free to:
 - ✅ Background LaunchAgent
 
 ### Phase 2 (Coming Soon)
-- [ ] Export dialog with multiple formats (txt, md, json, html)
+- [ ] Intelligent context management - no more "compact & pray"
+- [ ] Export dialog with multiple formats (txt, md, json, html, proprietary R&D format)
 - [ ] Settings dialog (default format, save location)
 - [ ] Playback in browser
-
-### Future: .devsession Format
-RecCli is developing an open standard for AI coding sessions:
-- **`.devsession` files** - Structured format for storing AI coding sessions
-- **Smart summarization** - AI-generated context summaries
-- **Multi-session synthesis** - Load context from multiple sessions
-- **Vector embeddings** - Semantic search across sessions
-
-This will enable better context management for AI coding tools (Claude Code, Cursor, etc.)
 
 ## Tech Stack
 
