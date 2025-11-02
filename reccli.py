@@ -388,16 +388,15 @@ class ReccliGUI:
         """Find a specific terminal window by its numeric ID"""
         try:
             # Query all Terminal windows and find the one matching target_id
-            # Also check if it's visible and not minimized
+            # Only check if minimized (not 'visible' since that's false on different Space)
             result = subprocess.run([
                 'osascript',
                 '-e', 'tell application "Terminal"',
                 '-e', 'repeat with w in windows',
                 '-e', f'if id of w is {target_id} then',
-                '-e', 'set isVisible to visible of w',
                 '-e', 'set isMini to miniaturized of w',
-                '-e', 'if isVisible is false or isMini is true then',
-                '-e', 'return "CLOSED_OR_MINIMIZED"',
+                '-e', 'if isMini is true then',
+                '-e', 'return "MINIMIZED"',
                 '-e', 'end if',
                 '-e', 'set windowPosition to position of w',
                 '-e', 'set windowSize to size of w',
@@ -410,8 +409,8 @@ class ReccliGUI:
             ], capture_output=True, text=True, timeout=2)
             if result.returncode == 0 and result.stdout.strip():
                 output = result.stdout.strip()
-                if output == "CLOSED_OR_MINIMIZED":
-                    debug_log(f"Instance {self.my_terminal_id}: Terminal closed or minimized")
+                if output == "MINIMIZED":
+                    debug_log(f"Instance {self.my_terminal_id}: Terminal minimized")
                     # If recording, just hide the popup, don't quit
                     if self.recorder.recording:
                         # Only hide if not already hidden
@@ -1134,21 +1133,43 @@ def watch_terminals():
 
     try:
         while True:
-            # Get current visible terminals (for launching new popups)
-            visible_terminals = set(get_all_terminal_ids())
-
-            # Get ALL terminals including minimized (to detect actual closes)
+            # Get ALL terminals (including minimized and across Spaces)
+            # Don't use get_all_terminal_ids() because it filters by 'visible'
+            # which can be false when terminal is on different Space
             all_terminals = set(get_all_terminal_ids_including_minimized())
 
-            # Find new terminals (visible but not tracked)
-            new_terminals = visible_terminals - tracked_terminals
+            # Find new terminals (in all_terminals but not tracked)
+            new_terminals = all_terminals - tracked_terminals
 
-            # Find closed terminals (tracked but not in ALL terminals, including minimized)
-            # This way we only remove from tracking when terminal is actually closed, not just minimized
+            # Find closed terminals (tracked but not in all_terminals)
+            # This only removes from tracking when terminal is actually closed
             closed_terminals = tracked_terminals - all_terminals
 
             # Launch popups for new terminals
             for term_id in new_terminals:
+                # Double-check: is there already a running process for this terminal?
+                # This prevents race conditions during Space changes
+                existing_pid = None
+                if processes_file.exists():
+                    try:
+                        with open(processes_file, 'r') as f:
+                            processes = json.load(f)
+                            existing_pid = processes.get(term_id)
+                    except:
+                        pass
+
+                # Check if existing process is still alive
+                if existing_pid:
+                    try:
+                        os.kill(int(existing_pid), 0)  # Signal 0 = check if process exists
+                        debug_log(f"Watcher: Terminal {term_id} already has running popup (PID: {existing_pid}), skipping")
+                        tracked_terminals.add(term_id)  # Add to tracking to prevent future attempts
+                        continue  # Skip launching duplicate
+                    except (OSError, ValueError):
+                        # Process is dead, safe to launch new one
+                        debug_log(f"Watcher: Terminal {term_id} had dead process {existing_pid}, launching new one")
+                        pass
+
                 try:
                     proc = subprocess.Popen(
                         [sys.executable, str(script_path), 'gui', '--terminal-id', term_id],
