@@ -83,7 +83,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#5b6ef7] to-[#6b5bb8] text-white">
       {/* Header */}
-      <header className="py-8">
+      <header className="py-4">
         <nav className="container mx-auto px-6 md:px-10 flex justify-between items-center max-w-7xl">
           <div className="flex items-center gap-3 text-4xl font-bold tracking-tight">
             <div className="w-5 h-5 bg-[#ff5757] rounded-full"></div>
@@ -102,17 +102,44 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-8 pb-16">
-        <div className="container mx-auto px-6 md:px-10 max-w-7xl">
+      <section className="py-8 pb-16 relative overflow-hidden">
+        {/* Background Image - No gradient overlay */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: 'url(/datatothought.PNG)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
+
+        {/* Wave Overlay at Top */}
+        <div className="absolute left-0 right-0 pointer-events-none" style={{ top: '-50px', zIndex: 20 }}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full" style={{ display: 'block', height: '120px' }}>
+            <path
+              fill="url(#wave-gradient)"
+              d="M0,0 L1440,0 L1440,70 L1360,74 C1280,78,1120,76,960,74 C800,72,640,70,480,72 C320,74,160,76,80,77 L0,78 Z"
+            ></path>
+            <defs>
+              <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#5b6ef7" />
+                <stop offset="100%" stopColor="#6b5bb8" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        {/* Content */}
+        <div className="container mx-auto px-6 md:px-10 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center lg:mt-0 -mt-8">
             {/* Left Column */}
             <div>
-              <h1 className="text-4xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-8">
-                Never Lose Terminal Context Again
-              </h1>
-              <h2 className="text-2xl lg:text-3xl opacity-90 mb-4 lg:mb-12 leading-snug font-normal">
-                One-click CLI recording. A floating button that stays out of your way.
-              </h2>
+              <div className="bg-black/30 backdrop-blur-sm px-4 py-3 rounded-xl border border-white/10 mb-4 lg:mb-12 inline-block">
+                <h1 className="text-2xl lg:text-3xl opacity-90 leading-snug font-normal">
+                  One-click CLI recording. A floating button that stays out of your way.
+                </h1>
+              </div>
 
               {/* Social Buttons - Hidden on mobile, shown on desktop */}
               <div className="hidden lg:flex gap-4 mb-4">
