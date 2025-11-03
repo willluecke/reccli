@@ -81,9 +81,9 @@ export default function Home() {
     }
   }
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#5b6ef7] to-[#6b5bb8] text-white">
+    <div className="min-h-screen bg-gradient-to-br from-[#5b6ef7] to-[#6b5bb8] text-white overflow-x-hidden">
       {/* Header */}
-      <header className="py-4">
+      <header className="py-1">
         <nav className="container mx-auto px-6 md:px-10 flex justify-between items-center max-w-7xl">
           <div className="flex items-center gap-3 text-4xl font-bold tracking-tight">
             <div className="w-5 h-5 bg-[#ff5757] rounded-full"></div>
@@ -102,7 +102,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-8 pb-16 relative overflow-hidden">
+      <section className="py-8 pb-8 relative overflow-x-hidden">
         {/* Background Image - No gradient overlay */}
         <div
           className="absolute inset-0 z-0"
@@ -115,16 +115,17 @@ export default function Home() {
         />
 
         {/* Wave Overlay at Top */}
-        <div className="absolute left-0 right-0 pointer-events-none" style={{ top: '-50px', zIndex: 20 }}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full" style={{ display: 'block', height: '120px' }}>
+        <div className="absolute left-0 right-0 pointer-events-none" style={{ top: '-35px', zIndex: 20 }}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" className="w-full" style={{ display: 'block', height: '100px' }} preserveAspectRatio="none">
             <path
               fill="url(#wave-gradient)"
-              d="M0,0 L1440,0 L1440,70 L1360,74 C1280,78,1120,76,960,74 C800,72,640,70,480,72 C320,74,160,76,80,77 L0,78 Z"
+              fillOpacity="1"
+              d="M0,10 L1440,10 L1440,44 C1380,47 1320,50 1260,48 C1200,46 1140,40 1080,42 C1020,44 960,53 900,56 C840,59 780,56 720,51 C660,46 600,40 540,42 C480,44 420,53 360,57 C300,61 240,61 180,58 C120,55 60,49 30,46 L0,43 Z"
             ></path>
             <defs>
               <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#5b6ef7" />
-                <stop offset="100%" stopColor="#6b5bb8" />
+                <stop offset="0%" stopColor="#5b6ef7" stopOpacity="1" />
+                <stop offset="100%" stopColor="#6b5bb8" stopOpacity="1" />
               </linearGradient>
             </defs>
           </svg>
@@ -135,11 +136,9 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center lg:mt-0 -mt-8">
             {/* Left Column */}
             <div>
-              <div className="bg-black/30 backdrop-blur-sm px-4 py-3 rounded-xl border border-white/10 mb-4 lg:mb-12 inline-block">
-                <h1 className="text-2xl lg:text-3xl opacity-90 leading-snug font-normal">
-                  One-click CLI recording. A floating button that stays out of your way.
-                </h1>
-              </div>
+              <h1 className="text-2xl lg:text-4xl opacity-90 leading-snug font-normal mb-8 lg:-mt-12">
+                One-click CLI recording. A floating button that stays out of your way.
+              </h1>
 
               {/* Social Buttons - Hidden on mobile, shown on desktop */}
               <div className="hidden lg:flex gap-4 mb-4">
@@ -166,9 +165,9 @@ export default function Home() {
             </div>
 
             {/* Right Column - Terminal Demo */}
-            <div className="relative max-w-xl mx-auto lg:mx-0 lg:pr-11 lg:mt-4 mt-4">
-              <div className="space-y-6">
-              <div className="bg-[#1e1e1e] rounded-2xl shadow-2xl overflow-visible border border-white/10 relative">
+            <div className="relative max-w-xl mx-auto lg:mx-0 lg:pr-11 z-[50] mt-[15px]">
+              <div className="space-y-6 mt-[15px]">
+              <div className="bg-[#1e1e1e] rounded-2xl shadow-2xl overflow-visible border border-white/10 relative z-[50] pt-[30px]">
                 {/* Terminal Header */}
                 <div className="bg-[#2d2d2d] px-4 py-3 flex items-center gap-2 relative rounded-t-2xl">
                   <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -176,7 +175,7 @@ export default function Home() {
                   <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
 
                   {/* RecCli Floating Popup Window */}
-                  <div className="absolute -top-[22px] -right-px bg-transparent rounded-lg z-10 shadow-[-2px_0_8px_rgba(0,0,0,0.3)]">
+                  <div className="absolute -top-[22px] -right-px bg-transparent rounded-lg shadow-[-2px_0_8px_rgba(0,0,0,0.3)]" style={{ zIndex: 100 }}>
                     {/* Mini window header - sticks out above terminal */}
                     <div className="bg-[#2d2d2d] px-2 py-1 pb-1.5 flex items-center gap-1.5 rounded-t-lg shadow-sm relative">
                       <div className="w-3 h-3 rounded-full bg-[#5c5c5c] relative top-[1px]"></div>
@@ -193,16 +192,17 @@ export default function Home() {
                       >
                         <div className={`w-2.5 h-2.5 bg-[#ff3b30] transition-all ${terminalRecordingStarted ? 'rounded-full' : 'rounded-none'}`}></div>
                       </div>
-                      {terminalRecordingStarted && (
-                        <div className="absolute -top-16 left-1/2 -translate-x-1/2 lg:translate-x-[-50%] translate-x-[calc(-50%-10px)] bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap shadow-lg border border-white/10 z-20">
-                          Export docs
-                          <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px">
-                            <div className="border-4 border-transparent border-t-black/70"></div>
-                          </div>
-                        </div>
-                      )}
                     </div>
                   </div>
+                  {/* Export docs popup - positioned outside parent to avoid clipping */}
+                  {terminalRecordingStarted && (
+                    <div className="absolute -top-[38px] right-[45px] bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap shadow-lg border border-white/10" style={{ zIndex: 101 }}>
+                      Export docs
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px">
+                        <div className="border-4 border-transparent border-t-black/70"></div>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Terminal Content */}
