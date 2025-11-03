@@ -84,7 +84,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-[#5b6ef7] to-[#6b5bb8] text-white overflow-x-hidden">
       {/* Header */}
       <header className="py-1">
-        <nav className="container mx-auto px-6 md:px-10 flex justify-between items-center max-w-7xl">
+        <nav className="container mx-auto px-6 md:px-10 flex justify-between items-center max-w-7xl pt-2">
           <div className="flex items-center gap-3 text-4xl font-bold tracking-tight">
             <div className="w-5 h-5 bg-[#ff5757] rounded-full"></div>
             reccli
@@ -103,9 +103,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="py-8 pb-8 relative overflow-x-hidden">
-        {/* Background Image - No gradient overlay */}
+        {/* Background Image - Desktop only */}
         <div
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 hidden lg:block"
           style={{
             backgroundImage: 'url(/datatothought.PNG)',
             backgroundSize: 'cover',
@@ -114,8 +114,8 @@ export default function Home() {
           }}
         />
 
-        {/* Wave Overlay at Top */}
-        <div className="absolute left-0 right-0 pointer-events-none" style={{ top: '-35px', zIndex: 20 }}>
+        {/* Wave Overlay at Top - Desktop only */}
+        <div className="absolute left-0 right-0 pointer-events-none hidden lg:block" style={{ top: '-35px', zIndex: 20 }}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" className="w-full" style={{ display: 'block', height: '100px' }} preserveAspectRatio="none">
             <path
               fill="url(#wave-gradient)"
@@ -136,7 +136,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center lg:mt-0 -mt-8">
             {/* Left Column */}
             <div>
-              <h1 className="text-2xl lg:text-4xl opacity-90 leading-snug font-normal mb-8 lg:-mt-12">
+              <h1 className="text-2xl lg:text-4xl opacity-90 leading-snug font-normal mb-8 mt-16 lg:-mt-12">
                 One-click CLI recording. A floating button that stays out of your way.
               </h1>
 
@@ -165,7 +165,7 @@ export default function Home() {
             </div>
 
             {/* Right Column - Terminal Demo */}
-            <div className="relative max-w-xl mx-auto lg:mx-0 lg:pr-11 z-[50] mt-[45px]">
+            <div className="relative max-w-xl mx-auto lg:mx-0 lg:pr-11 z-[50] -mt-8 lg:mt-[45px]">
               <div className="space-y-6">
               <div className="bg-[#1e1e1e] rounded-2xl shadow-2xl overflow-visible border border-white/10 relative z-[50]">
                 {/* Terminal Header */}
@@ -282,25 +282,40 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white/10 backdrop-blur-md">
-        <div className="container mx-auto px-6 md:px-10 max-w-7xl">
+      <section className="py-20 relative overflow-hidden">
+        {/* Purple background layer - desktop only */}
+        <div className="absolute inset-0 hidden lg:block bg-white/10 backdrop-blur-md z-0" />
+
+        {/* Background Image - Mobile only */}
+        <div
+          className="absolute inset-0 z-10 lg:hidden"
+          style={{
+            backgroundImage: 'url(/datatothought.PNG)',
+            backgroundSize: 'cover',
+            backgroundPosition: '5% center',
+            backgroundRepeat: 'no-repeat',
+            opacity: 0.7
+          }}
+        />
+
+        <div className="container mx-auto px-6 md:px-10 max-w-7xl relative z-10">
           <h2 className="text-5xl font-bold text-center mb-16">Why RecCli?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
+            <div className="bg-black/40 lg:bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
               <div className="mb-4 bg-red-500/20 w-16 h-16 rounded-xl flex items-center justify-center">
                 <Circle className="w-8 h-8 text-red-400 fill-red-400" strokeWidth={2.5} />
               </div>
               <h3 className="text-2xl font-bold mb-4">One-Click Recording</h3>
               <p className="text-lg opacity-90">Floating button appears on every terminal. Click to start, click to stop.</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
+            <div className="bg-black/40 lg:bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
               <div className="mb-4 bg-green-500/20 w-16 h-16 rounded-xl flex items-center justify-center">
                 <Terminal className="w-8 h-8 text-green-400" strokeWidth={2.5} />
               </div>
               <h3 className="text-2xl font-bold mb-4">Per-Terminal Recording</h3>
               <p className="text-lg opacity-90">Each window gets its own popup. Independent recording states.</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
+            <div className="bg-black/40 lg:bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
               <div className="mb-4 bg-orange-500/20 w-16 h-16 rounded-xl flex items-center justify-center">
                 <Rocket className="w-8 h-8 text-orange-400" strokeWidth={2.5} />
               </div>
