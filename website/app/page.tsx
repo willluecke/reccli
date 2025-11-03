@@ -120,7 +120,7 @@ export default function Home() {
             <path
               fill="url(#wave-gradient)"
               fillOpacity="1"
-              d="M0,10 L1440,10 L1440,44 C1380,47 1320,50 1260,48 C1200,46 1140,40 1080,42 C1020,44 960,53 900,56 C840,59 780,56 720,51 C660,46 600,40 540,42 C480,44 420,53 360,57 C300,61 240,61 180,58 C120,55 60,49 30,46 L0,43 Z"
+              d="M0,10 L1440,10 L1440,45 C1380,47 1320,49 1260,48 C1200,47 1140,43 1080,44 C1020,45 960,51 900,53 C840,55 780,53 720,50 C660,47 600,43 540,44 C480,45 420,51 360,54 C300,57 240,57 180,55 C120,53 60,49 30,47 L0,45 Z"
             ></path>
             <defs>
               <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -245,7 +245,7 @@ export default function Home() {
                   </svg>
                 </button>
                 {copiedBrew && (
-                  <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-white text-black px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap shadow-lg">
+                  <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-white text-black px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap shadow-lg z-[100]">
                     Copied!
                     <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px">
                       <div className="border-4 border-transparent border-t-white"></div>
