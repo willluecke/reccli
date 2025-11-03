@@ -165,9 +165,9 @@ export default function Home() {
             </div>
 
             {/* Right Column - Terminal Demo */}
-            <div className="relative max-w-xl mx-auto lg:mx-0 lg:pr-11 z-[50] mt-[15px]">
-              <div className="space-y-6 mt-[15px]">
-              <div className="bg-[#1e1e1e] rounded-2xl shadow-2xl overflow-visible border border-white/10 relative z-[50] pt-[30px]">
+            <div className="relative max-w-xl mx-auto lg:mx-0 lg:pr-11 z-[50] mt-[45px]">
+              <div className="space-y-6">
+              <div className="bg-[#1e1e1e] rounded-2xl shadow-2xl overflow-visible border border-white/10 relative z-[50]">
                 {/* Terminal Header */}
                 <div className="bg-[#2d2d2d] px-4 py-3 flex items-center gap-2 relative rounded-t-2xl">
                   <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
